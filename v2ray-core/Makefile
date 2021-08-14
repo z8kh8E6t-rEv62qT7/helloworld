@@ -122,29 +122,29 @@ config V2RAY_CTL_COMPRESS_UPX
 endmenu
 endef
 
-GEOIP_VER:=202106030115
+GEOIP_VER:=202108132209
 GEOIP_FILE:=geoip.dat.$(GEOIP_VER)
 
 define Download/geoip
-  URL:=https://github.com/v2fly/geoip/releases/download/$(GEOIP_VER)/
+  URL:=https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$(GEOIP_VER)/
   URL_FILE:=geoip.dat
   FILE:=$(GEOIP_FILE)
-  HASH:=acf231d7c6461d088ae479fe0c1cb143b5ee3cf7048a897c5a9b7807ab7005df
+  HASH:=dc4ffc313bf7836fbc0c5fbbca1c2a89fd8fde801240f44ff2f108e1a6fdf092
 endef
 
-GEOSITE_VER:=20210531212831
+GEOSITE_VER:=20210812210645
 GEOSITE_FILE:=dlc.dat.$(GEOSITE_VER)
 
 define Download/geosite
   URL:=https://github.com/v2fly/domain-list-community/releases/download/$(GEOSITE_VER)/
   URL_FILE:=dlc.dat
   FILE:=$(GEOSITE_FILE)
-  HASH:=332bbe53af49582dbf89bda04ee5e60e474f9293fc368ab55b517fdcd4a78ed2
+  HASH:=2ab0d840dac3094e29c3e707a8182ca34e1961baf820a816600e6f140ec89f99
 endef
 
 ifneq ($(CONFIG_V2RAY_CORE_COMPRESS_GOPROXY)$(CONFIG_V2RAY_CTL_COMPRESS_GOPROXY),)
 	export GO111MODULE=on
-	export GOPROXY=https://goproxy.io
+	export GOPROXY=no
 endif
 
 define Build/Prepare
